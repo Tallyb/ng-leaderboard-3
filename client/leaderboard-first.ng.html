@@ -1,0 +1,23 @@
+<div class="outer" ng-controller="leaderBoardCtrl-first">
+    <div class="logo"></div>
+    <h1 class="title" >First Leaderboard</h1>
+    <div class="subtitle">Select a scientist to give them points</div>
+    <div class="subtitle">Number of players to display:
+        <input type="number" ng-model="limitFirst"/>
+    </div>
+
+    <ol class="leaderboard" >
+        <li ng-repeat = "player in players track by player._id" ng-class="{player: true, selected: isSelected(player)}"  ng-click="selectPlayer(player)">
+            <span class="name">{{player.name}}</span>
+            <span class="score">{{player.score}}</span>
+        </li>
+    </ol>
+
+    <div class="details" ng-show = "selectedPlayer">
+        <div class="name">{{selectedPlayer.name}}</div>
+        <button class="inc" ng-click="addPoints()">Add 5 points</button>
+    </div>
+    <div class="message" ng-show = "!selectedPlayer">Click a player to select</div>
+</div>
+
+
